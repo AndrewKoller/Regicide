@@ -111,7 +111,7 @@
                                 </Types>
                                 <Binding flavour="constant">
                                   <Type>camera_mode</Type>
-                                  <Value>CAMERA_MODE_TOP_DOWN</Value>
+                                  <Value>CAMERA_MODE_STIFF_CHASE_CAMERA</Value>
                                 </Binding>
                               </KnowIt>
                             </Parameters>
@@ -144,7 +144,7 @@
                                 </Types>
                                 <Binding flavour="constant">
                                   <Type>camera_mode</Type>
-                                  <Value>CAMERA_MODE_TOP_DOWN</Value>
+                                  <Value>CAMERA_MODE_STIFF_CHASE_CAMERA</Value>
                                 </Binding>
                               </KnowIt>
                             </Parameters>
