@@ -1,0 +1,62 @@
+// Includes
+#include "i_se_story"
+#include "i_se_aux"
+
+// Function Declarations
+object ThePlayerCharacter();
+void FaceTheCameraDirectionDegreesFromTheEastAndDistanceMetresFromTheCharacterAtAPitchDegreeAngleWithTransitionTypeTransition(float Direction, float Distance, float Pitch, int TransitionType);
+void WhenModuleSHeartBeats(object subject);
+void SetTheHeightOfTheCameraToHeightMetres(float Height);
+int IfCreatureIsEngagedInCombat(object Creature);
+
+// Main
+void main() {
+    //Variable Declarations
+    object subject;
+    subject = SE_AUX_GetNearestObjectByTagIncludeSelf("MODULE");
+    //Function Calls
+    WhenModuleSHeartBeats(subject);
+}
+
+// Function Definitions
+object ThePlayerCharacter() {
+    return GetFirstPC();
+}
+void FaceTheCameraDirectionDegreesFromTheEastAndDistanceMetresFromTheCharacterAtAPitchDegreeAngleWithTransitionTypeTransition(float Direction, float Distance, float Pitch, int TransitionType) {
+    AssignCommand(GetFirstPC(), SetCameraFacing(Direction, Distance, Pitch, TransitionType));
+}
+void WhenModuleSHeartBeats(object subject) {
+    // Implicits Declaration
+    // Implicits Definition
+    // Variable Declarations
+    object ThePlayerCharacter_0;
+    object Creature;
+    int InCombat;
+    float Direction;
+    float Distance;
+    float Pitch;
+    int TransitionType;
+    float Height;
+
+    // Variable Definitions
+    ThePlayerCharacter_0 = ThePlayerCharacter();
+    Creature = ThePlayerCharacter_0;
+    InCombat = IfCreatureIsEngagedInCombat(Creature);
+    Direction = 270.0;
+    Distance = 6.0;
+    Pitch = 90.0;
+    TransitionType = CAMERA_TRANSITION_TYPE_SNAP;
+    Height = 1.5;
+
+    // Children
+    FaceTheCameraDirectionDegreesFromTheEastAndDistanceMetresFromTheCharacterAtAPitchDegreeAngleWithTransitionTypeTransition(Direction, Distance, Pitch, TransitionType);
+    SetTheHeightOfTheCameraToHeightMetres(Height);
+
+}
+void SetTheHeightOfTheCameraToHeightMetres(float Height) {
+    SetCameraHeight(GetFirstPC(), Height);
+}
+int IfCreatureIsEngagedInCombat(object Creature) {
+    return GetIsInCombat(Creature);
+}
+
